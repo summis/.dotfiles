@@ -1,0 +1,70 @@
+/* Simple fullscreen rofi color scheme.  */
+
+* {
+    background: rgb(255,255,255);
+    selected: rgb(228,228,228);
+    text: black;
+}
+
+#window {
+    background-color: @background;
+    children: [ mainbox];
+}
+
+#message {
+    background-color: transparent;
+    text-color: @text;
+}
+
+#mainbox {
+    background-color: transparent;
+    padding: 30% 20% 20% 20%;
+}
+
+#listview {
+    background-color: transparent;
+    border:       20 0;
+    spacing:      10;
+}
+
+/* This is needed for errormessage */
+#textbox {
+    background-color: @background;
+    text-color: @text;
+    padding: 60;
+}
+
+#element {
+    background-color: transparent;
+    padding: 4 4 4 24;
+    text-color: @text;
+}
+
+#element.selected {
+    background-color: @selected;
+    border-radius: 6;
+}
+
+#inputbar {
+    background-color: transparent;
+    children:   [ prompt, textbox-prompt-sep, entry];
+}
+
+#prompt {
+    background-color: transparent;
+    text-color: @text;
+    padding: 0 0 0 24;
+}
+
+#entry {
+    background-color: transparent;
+    text-color: @text;
+}
+
+#textbox-prompt-sep {
+    background-color: transparent;
+    text-color: @text;
+    expand:     false;
+    str:        " >> ";
+    margin:     0 5 0 0;
+}
