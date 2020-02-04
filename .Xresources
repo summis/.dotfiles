@@ -1,4 +1,6 @@
-#include ".config/urxvt"
+! ~/.Xresources
+
+#include "/home/summis/.config/urxvt"
 
 Xft.dpi:       96
 Xft.antialias: true
@@ -8,13 +10,14 @@ Xft.autohint:  false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
+! TODO: some okay color scheme
 !*background:                      #222D31
+*foreground:                      #08d9f3
 *background:                      #FFFFFF
-!*foreground:                      #d8d8d8
-*foreground:                      red
-*fading:                          8
-*fadeColor:                       white
-*cursorColor:                     #1ABB9B
+!*foreground:                      #FFFFFF
+*fading:                          20
+*fadeColor:                       black
+*cursorColor:                     #ff00ff
 *pointerColorBackground:          #2B2C2B
 *pointerColorForeground:          #16A085
 
@@ -49,36 +52,3 @@ Xft.lcdfilter: lcddefault
 !! white dark/light
 *color7:                          #d8d8d8
 *color15:                         #f8f8f8
-
-Xcursor.theme: xcursor-breeze
-Xcursor.size:                     0
-
-! nice font with a bit tinier letter space
-
-! alternative font settings with 'terminus':
-!! terminus names see end of file!
-
-
-! for 'fake' transparency (without Compton) uncomment the following three lines
-
-
-! Normal copy-paste keybindings without perls
-!
-!Xterm escape codes, word by word movement
-
-! The Terminus font uses the following X-names:
-! -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
-! -xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso10646-1
-! -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
-! -xos4-terminus-medium-r-normal--20-200-72-72-c-100-iso10646-1
-! -xos4-terminus-medium-r-normal--22-220-72-72-c-110-iso10646-1
-! -xos4-terminus-medium-r-normal--24-240-72-72-c-120-iso10646-1
-! -xos4-terminus-medium-r-normal--28-280-72-72-c-140-iso10646-1
-! -xos4-terminus-medium-r-normal--32-320-72-72-c-160-iso10646-1
-! -xos4-terminus-bold-r-normal--12-120-72-72-c-60-iso10646-1
-! -xos4-terminus-bold-r-normal--14-140-72-72-c-80-iso10646-1
-! -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
-! -xos4-terminus-bold-r-normal--20-200-72-72-c-100-iso10646-1
-! -xos4-terminus-bold-r-normal--24-240-72-72-c-120-iso10646-1
-! -xos4-terminus-bold-r-normal--28-280-72-72-c-140-iso10646-1
-! -xos4-terminus-bold-r-normal--32-320-72-72-c-160-iso10646-1
