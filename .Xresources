@@ -1,5 +1,4 @@
 ! ~/.Xresources
-
 #include "/home/summis/.config/urxvt"
 
 Xft.dpi:       96
@@ -10,45 +9,56 @@ Xft.autohint:  false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
-! TODO: some okay color scheme
-!*background:                      #222D31
-*foreground:                      #08d9f3
-*background:                      #FFFFFF
-!*foreground:                      #FFFFFF
+! foreground = rainbow12 and curson same as prompt
+*foreground:                      #f26d01
+*background:                      #ffffff
 *fading:                          20
 *fadeColor:                       black
 *cursorColor:                     #ff00ff
-*pointerColorBackground:          #2B2C2B
-*pointerColorForeground:          #16A085
 
-!! black dark/light
-*color0:                          #222D31
-*color8:                          #585858
+! My rainbow accent colors, used with i3 and polybar
+*rainbow_1: #e107f4
+*rainbow_2: #a704f6
+*rainbow_3: #6603f5
+*rainbow_4: #4205f7
+*rainbow_5: #037df4
+*rainbow_6: #08d9f3
+*rainbow_7: #06f4a6
+*rainbow_8: #28f403
+*rainbow_9: #99f306
+*rainbow_10: #e4f504
+*rainbow_11: #f3b803
+*rainbow_12: #f26d01
+*rainbow_13: #f21605
 
-!! red dark/light
-*color1:                          #ab4642
-*color9:                          #ab4642
+! black
+*color0:  #000000
+*color8:  #767676
 
-!! green dark/light
-*color2:                          #7E807E
-*color10:                         #8D8F8D
+! red
+*color1:  #cc0403
+*color9:  #f2201f
 
-!! yellow dark/light
-*color3:                          #f7ca88
-*color11:                         #f7ca88
+! green
+*color2:  #19cb00
+*color10: #23fd00
 
-!! blue dark/light
-*color4:                          #7cafc2
-*color12:                         #7cafc2
+! yellow
+*color3:  #cecb00
+*color11: #fffd00
 
-!! magenta dark/light
-*color5:                          #ba8baf
-*color13:                         #ba8baf
+! blue
+*color4:  #0d73cc
+*color12: #1a8fff
 
-!! cyan dark/light
-*color6:                          #1ABB9B
-*color14:                         #1ABB9B
+! magenta
+*color5:  #cb1ed1
+*color13: #fd28ff
 
-!! white dark/light
-*color7:                          #d8d8d8
-*color15:                         #f8f8f8
+! cyan
+*color6:  #0dcdcd
+*color14: #14ffff
+
+! white
+*color7:  #dddddd
+*color15: #ffffff
