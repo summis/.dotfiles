@@ -3,4 +3,11 @@
 
 url="https://www.google.com/search?q="
 query=$( (echo ) | rofi  -dmenu -matching fuzzy -location 0 -p "Google search" )
-xdg-open "$url$query"
+
+if [[ -n "$query" ]]; then
+    xdg-open "$url$query"
+else
+    exit
+fi
+
+exit 0
