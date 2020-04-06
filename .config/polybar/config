@@ -5,19 +5,19 @@ background = transparent
 foreground = #6c6c6c
 alert = #bd2c40
 
-rainbow_1 = #e107f4
-rainbow_2 = #a704f6
-rainbow_3 = #6603f5
-rainbow_4 = #4205f7
-rainbow_5 = #037df4
-rainbow_6 = #08d9f3
-rainbow_7 = #06f4a6
-rainbow_8 = #28f403
-rainbow_9 = #99f306
-rainbow_10 = #e4f504
-rainbow_11 = #f3b803
-rainbow_12 = #f26d01
-rainbow_13 = #f21605
+rainbow_1 = ${xrdb:rainbow_1}
+rainbow_2 = ${xrdb:rainbow_2}
+rainbow_3 = ${xrdb:rainbow_3}
+rainbow_4 = ${xrdb:rainbow_4}
+rainbow_5 = ${xrdb:rainbow_5}
+rainbow_6 = ${xrdb:rainbow_6}
+rainbow_7 = ${xrdb:rainbow_7}
+rainbow_8 = ${xrdb:rainbow_8}
+rainbow_9 = ${xrdb:rainbow_9}
+rainbow_10 = ${xrdb:rainbow_10}
+rainbow_11 = ${xrdb:rainbow_11}
+rainbow_12 = ${xrdb:rainbow_12}
+rainbow_13 = ${xrdb:rainbow_13}
 
 
 [bar/mybar]
@@ -62,7 +62,7 @@ ws-icon-7 = 8; VIII
 label-focused = %icon%
 label-focused-foreground = ${colors.foreground}
 label-focused-underline= ${colors.rainbow_6}
-label-focused-padding = 1
+label-focused-padding = 2
 
 label-unfocused = %icon%
 label-unfocused-foreground = ${colors.foreground}
