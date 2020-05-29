@@ -37,6 +37,7 @@ print_colors_2() {
 }
 
 # excract files
+# bug: can't handle files with space in name
 ex ()
 {
   if [ -f $1 ] ; then
@@ -69,4 +70,3 @@ man() {
     LESS_TERMCAP_us=$'\e[01;32m' \
     command man "$@"
 }
-
