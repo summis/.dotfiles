@@ -42,6 +42,8 @@ modules-right = xbacklight alsa eth wlan battery date powermenu
 
 
 ; TODO: multimonitor setup
+; TODO: update bar when monitor setup change, now it is stuck to
+; shoter bar if change is made to wider display
 [module/i3]
 type = internal/i3
 

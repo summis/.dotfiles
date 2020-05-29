@@ -33,7 +33,7 @@ bindsym $mod+Shift+q kill
 # Start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show
 
-# Sound & brighness settings 
+# Sound & brighness settings
 # Arch wiki, man's best friend
 # https://wiki.archlinux.org/index.php/PulseAudio/Troubleshooting#Output_stuck_muted_while_Master_is_toggled
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -q sset Master,0 3+ unmute"
@@ -86,6 +86,10 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+
+# prev and next workspace
+bindsym $mod+n workspace next
+bindsym $mod+b workspace prev
 
 # split orientation
 bindsym $mod+v split v
@@ -217,15 +221,15 @@ exec --no-startup-id nitrogen --restore; sleep 1; picom -f
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id clipit
-exec --no-startup-id $term --name lf-term lf
+exec --no-startup-id $term --name ranger-term ranger
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id polybar -r mybar
 exec_always --no-startup-id conky
 
 # Move lf to scratchpad on startup
-for_window [instance="lf-term"] move scratchpad 
-for_window [instance="lf-term"] sticky enable
+for_window [instance="ranger-term"] move scratchpad
+for_window [instance="ranger-term"] sticky enable
 
 # Theme colors
 set_from_resource   $rb1    rainbow_1   #000000
@@ -246,7 +250,7 @@ set $black #000000
 
 # revise if placeholders are needed some day
 #                       border  backgr. text    indic.  child_border
-client.focused          $rb12   $rb12   $white  $black  $rb12 
+client.focused          $rb12   $rb12   $white  $black  $rb12
 client.focused_inactive $rb11   $rb11   $white  $black  $rb11
 client.unfocused        $rb10   $rb10   $white  $black  $rb10
 client.urgent           $rb13   $rb13   $white  $black  $rb13

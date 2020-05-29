@@ -1,14 +1,13 @@
-URxvt.font:                       xft:Inconsolata:size=15:antialias=true, xft:TerminessTTFNerdFontMono
-URxvt.letterSpace:		  -1
-! URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
-! URxvt.bold.font: -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
+URxvt.font: xft:SF Mono:size=15,xft:Inconsolata Nerd Font Mono:size=15 
+URxvt.letterSpace:		  -6
 URxvt.depth:                      32
-URxvt.background:                 [30]#222D31
+URxvt*foreground:                 #222D31
+URxvt.background:                 [90]#FFFFFF
+URxvt*fadeColor:                  blue
+!URxvt*foreground:                 #FFFFFF
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
-!URxvt*background:                 black
-URxvt*foreground:                 white
 URxvt*saveLines:                  5000
 ! URxvt*inheritPixmap:            true
 ! URxvt*transparent:              true
@@ -50,7 +49,7 @@ URxvt*scrollTtyKeypress:          true
 ! URxvt*tintColor:                  !7DA55
 ! URxvt*blurRadius:                 HxV
 ! URxvt*fading:                     number
-! URxvt*fadeColor:                  color
+! URxvt*fadeColor:                  green
 ! URxvt*utmpInhibit:                boolean
 ! URxvt*urgentOnBell:               boolean
 ! URxvt*visualBell:                 boolean
