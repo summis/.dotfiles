@@ -15,6 +15,7 @@ alias R='R --quiet'
 alias sxiv='sxiv -at'
 
 # common typos
+alias ehco=echo
 alias sl=ls
 alias s=ls
 alias cim=vim
@@ -24,8 +25,15 @@ alias ivm=vim
 alias xcilp=xclip
 alias xlcip=xclip
 alias xlip=xclip
-alias ehco=echo
 alias Z=z
+
+# git aliases
+alias gad='git add'
+alias gco='git commit'
+alias gst='git status'
+alias glo='git log --oneline'
+alias gbr='git branch'
+alias gch='git checkout'
 
 # fun with docker
 alias pdflatex='docker run -it --rm -v $(pwd):/project summila/alpine-texlive'
