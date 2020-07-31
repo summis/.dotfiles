@@ -3,13 +3,17 @@
 # if not running interactively, stop
 [[ $- != *i* ]] && return
 
-# aliases and functions
-[ -f ~/.bash_aliases ] && source ~/.bash_aliases
-[ -f ~/.bash_functions ] && source ~/.bash_functions
-
 # bash-completion: https://github.com/scop/bash-completion
 [ -f /usr/share/bash-completion/bash_completion ] && \
     source /usr/share/bash-completion/bash_completion
+
+# tab completion for aliases: https://github.com/cykerway/complete-alias
+[ -f ~/.local/bin/complete_alias ] && source ~/.local/bin/complete_alias
+
+# aliases, functions and completions
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
+[ -f ~/.bash_functions ] && source ~/.bash_functions
+[ -f ~/.bash_completions ] && source ~/.bash_completions
 
 # git-prompt: https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
 [ -f /usr/share/git/git-prompt.sh ] && source /usr/share/git/git-prompt.sh

@@ -1,0 +1,7 @@
+complete -F _complete_alias gad
+complete -F _complete_alias gbr
+complete -F _complete_alias gch
+complete -F _complete_alias gco
+complete -F _complete_alias glo
+complete -F _complete_alias gst
+complete -F _complete_alias config
