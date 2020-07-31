@@ -4,21 +4,22 @@
 [[ $- != *i* ]] && return
 
 # aliases and functions
-[ -f ~/.bash_aliases ] && . ~/.bash_aliases
-[ -f ~/.bash_functions ] && . ~/.bash_functions
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
+[ -f ~/.bash_functions ] && source ~/.bash_functions
 
 # bash-completion: https://github.com/scop/bash-completion
 [ -f /usr/share/bash-completion/bash_completion ] && \
-    . /usr/share/bash-completion/bash_completion
+    source /usr/share/bash-completion/bash_completion
 
 # git-prompt: https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
-[ -f /usr/share/git/git-prompt.sh ] && . /usr/share/git/git-prompt.sh
+[ -f /usr/share/git/git-prompt.sh ] && source /usr/share/git/git-prompt.sh
 
 # z: https://github.com/rupa/z/
-[ -r /usr/share/z/z.sh ] && . /usr/share/z/z.sh
+[ -r /usr/share/z/z.sh ] && source /usr/share/z/z.sh
 
-# kitty completions
-. <(kitty + complete setup bash)
+# additional completions that are used if program exist
+hash kitty >/dev/null 2>&1 && source <(kitty + complete setup bash)
+hash kubectl >/dev/null 2>&1 && source <(kubectl completion bash)
 
 # prompt
 GIT_PS1_SHOWDIRTYSTATE=1
@@ -29,8 +30,7 @@ GREY="\[$(tput setaf 244)\]"
 PINK="\[$(tput setaf 201)\]"
 BLUE="\[$(tput setaf 27)\]"
 
-# TODO get rid of space before branch
-PS1="${BOLD}${GREY}[${PINK}\u@\h${BLUE} \W${GREY}]\$(__git_ps1 )\$ ${RESET}"
+PS1="${BOLD}${GREY}[${PINK}\u@\h${BLUE} \W${GREY}\$(__git_ps1 \" (%s)\")]\$ ${RESET}"
 PS2="${GREY}${BOLD}> ${RESET}"
 
 # allow local processes with root privileges to connect to the locally running X server
@@ -51,4 +51,3 @@ export HISTCONTROL=erasedups
 export VISUAL=vim
 export EDITOR=vim
 export BROWSER=chromium
-export TEXINPUTS=.:./style/:
