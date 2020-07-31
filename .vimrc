@@ -2,7 +2,6 @@
 
 " vim-plug settings
 call plug#begin('~/.vim/plugged')
-"Plug 'ycm-core/YouCompleteMe'
 Plug 'kjssad/quantum.vim'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'itchyny/lightline.vim'
@@ -47,10 +46,6 @@ map <C-p> "*p
 map Y y$
 nnoremap <C-L> :nohl<CR><C-L>
 nnoremap <C-W> :%s/\<<C-r><C-w>\>//g<Left><Left>
-nnoremap <F5> :buffers<CR>:buffer<Space>
-inoremap ( ()<Left>
-inoremap { {}<Left>
-inoremap [ []<Left>
 inoremap (<CR> (<CR>)<C-c>O
 inoremap {<CR> {<CR>}<C-c>O
 inoremap [<CR> [<CR>]<C-c>O

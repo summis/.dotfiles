@@ -4,3 +4,6 @@
 set show-all-if-ambiguous on
 set completion-ignore-case on
 set menu-complete-display-prefix on
+set page-completions off
+#set visible-stats on
+set colored-stats on
