@@ -15,10 +15,10 @@ font pango:Source Sans Pro 13
 hide_edge_borders none
 
 # Easier window resizing: form Luke Smith
-bindsym $mod+Shift+y exec --no-startup-id i3resize left
-bindsym $mod+Shift+u exec --no-startup-id i3resize down
-bindsym $mod+Shift+i exec --no-startup-id i3resize up
-bindsym $mod+Shift+o exec --no-startup-id i3resize right
+bindsym $mod+Shift+y exec --no-startup-id i3resize.sh left
+bindsym $mod+Shift+u exec --no-startup-id i3resize.sh down
+bindsym $mod+Shift+i exec --no-startup-id i3resize.sh up
+bindsym $mod+Shift+o exec --no-startup-id i3resize.sh right
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
@@ -43,10 +43,10 @@ bindcode $mod+60 exec --no-startup-id "amixer -q sset Master,0 3+ unmute"
 bindcode $mod+59 exec --no-startup-id "amixer -q sset Master,0 3- unmute"
 bindsym $mod+m  exec --no-startup-id "amixer -D pulse sset Master toggle"
 
-bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 10"
-bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 10"
-bindcode $mod+Shift+60 exec --no-startup-id "xbacklight -inc 10"
-bindcode $mod+Shift+59 exec --no-startup-id "xbacklight -dec 10"
+bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 5"
+bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 5"
+bindcode $mod+Shift+60 exec --no-startup-id "xbacklight -inc 5"
+bindcode $mod+Shift+59 exec --no-startup-id "xbacklight -dec 5"
 
 # Change keyboard layot on the fly. Consider making mode of this
 bindsym $mod+Ctrl+space exec --no-startup-id "setxkbmap -layout fi -variant nodeadkeys"
@@ -56,10 +56,11 @@ bindsym $mod+Shift+Ctrl+space exec --no-startup-id "setxkbmap -layout us -varian
 bindsym $mod+Print --release exec --no-startup-id flameshot gui
 bindsym $mod+p --release exec --no-startup-id flameshot gui
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
-bindsym $mod+g exec --no-startup-id gsearch
 bindsym $mod+c exec --no-startup-id chromium
 bindsym $mod+t exec --no-startup-id telegram-desktop
 bindsym $mod+z exec --no-startup-id zathura
+bindsym $mod+g exec --no-startup-id gsearch.sh
+bindsym $mod+r exec --no-startup-id random_wallpaper.sh
 
 focus_follows_mouse no
 
@@ -197,11 +198,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
-set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+set $mode_system (l)ock, (e)xit, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
     bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
     bindsym e exec --no-startup-id i3exit logout, mode "default"
     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
     bindsym r exec --no-startup-id i3exit reboot, mode "default"
@@ -217,34 +217,30 @@ bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; picom -f
-exec --no-startup-id nm-applet
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id clipit
+exec --no-startup-id picom -f
+#exec --no-startup-id xfce4-power-manager
 exec --no-startup-id $term --name ranger-term ranger
-exec_always --no-startup-id ff-theme-util
+exec --no-startup-id setup.sh
 exec_always --no-startup-id fix_xcursor
-exec_always --no-startup-id polybar -r mybar
-exec_always --no-startup-id conky
 
-# Move lf to scratchpad on startup
+# Move ranger to scratchpad on startup
 for_window [instance="ranger-term"] move scratchpad
 for_window [instance="ranger-term"] sticky enable
 
 # Theme colors
-set_from_resource   $rb1    rainbow_1   #000000
-set_from_resource   $rb2    rainbow_2   #000000
-set_from_resource   $rb3    rainbow_3   #000000
-set_from_resource   $rb4    rainbow_4   #000000
-set_from_resource   $rb5    rainbow_5   #000000
-set_from_resource   $rb6    rainbow_6   #000000
-set_from_resource   $rb7    rainbow_7   #000000
-set_from_resource   $rb8    rainbow_8   #000000
-set_from_resource   $rb9    rainbow_9   #000000
-set_from_resource   $rb10    rainbow_10   #000000
-set_from_resource   $rb11    rainbow_11   #000000
-set_from_resource   $rb12    rainbow_12   #000000
-set_from_resource   $rb13    rainbow_13   #FFFFFF
+set_from_resource   $rb1    rainbow_1
+set_from_resource   $rb2    rainbow_2
+set_from_resource   $rb3    rainbow_3
+set_from_resource   $rb4    rainbow_4
+set_from_resource   $rb5    rainbow_5
+set_from_resource   $rb6    rainbow_6
+set_from_resource   $rb7    rainbow_7
+set_from_resource   $rb8    rainbow_8
+set_from_resource   $rb9    rainbow_9
+set_from_resource   $rb10    rainbow_10
+set_from_resource   $rb11    rainbow_11
+set_from_resource   $rb12    rainbow_12
+set_from_resource   $rb13    rainbow_13
 set $white #FFFFFF
 set $black #000000
 

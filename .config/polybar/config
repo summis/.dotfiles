@@ -3,8 +3,6 @@
 [colors]
 background = transparent
 foreground = #6c6c6c
-alert = #bd2c40
-
 rainbow_1 = ${xrdb:rainbow_1}
 rainbow_2 = ${xrdb:rainbow_2}
 rainbow_3 = ${xrdb:rainbow_3}
@@ -18,40 +16,50 @@ rainbow_10 = ${xrdb:rainbow_10}
 rainbow_11 = ${xrdb:rainbow_11}
 rainbow_12 = ${xrdb:rainbow_12}
 rainbow_13 = ${xrdb:rainbow_13}
+alert = ${xrdb:rainbow_13}
 
 
-[bar/mybar]
+[bar/master]
 width = 100%
 height = 30
 background = ${colors.background}
 foreground = ${colors.foreground}
-line-size = 6
-cursor-click = pointer
-
 padding-left = 5
 padding-right = 5
 module-margin-left = 1
 module-margin-right = 1
-
+line-size = 6
+cursor-click = pointer
 font-0 = Source Sans Pro:size=16
 font-1 = Font Awesome 5 Free Solid
 font-2 = Font Awesome 5 Brands Regular
-
 modules-left = i3
-modules-right = xbacklight alsa eth wlan battery date powermenu
+modules-right = xbacklight alsa battery eth wlan date powermenu
 
 
-; TODO: multimonitor setup
-; TODO: update bar when monitor setup change, now it is stuck to
-; shoter bar if change is made to wider display
+[bar/eDP1]
+inherit = bar/master
+monitor = eDP1
+
+
+[bar/HDMI1]
+inherit = bar/master
+monitor = HDMI1
+modules-right = alsa battery eth wlan date powermenu
+
+
 [module/i3]
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+strip-wsnumbers = true
+enable-click = false
 type = internal/i3
-
+label-mode = %mode%
 format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
-label-mode-padding = 2
+index-sort=true
+enable-scroll=false
 
+label-mode-padding = 2
 ws-icon-0 = 1; I
 ws-icon-1 = 2; II
 ws-icon-2 = 3; III
@@ -60,16 +68,13 @@ ws-icon-4 = 5; V
 ws-icon-5 = 6; VI
 ws-icon-6 = 7; VII
 ws-icon-7 = 8; VIII
-
 label-focused = %icon%
 label-focused-foreground = ${colors.foreground}
 label-focused-underline= ${colors.rainbow_6}
 label-focused-padding = 2
-
 label-unfocused = %icon%
 label-unfocused-foreground = ${colors.foreground}
 label-unfocused-padding = 2
-
 label-urgent = %icon%
 label-urgent-foreground = ${colors.foreground}
 label-urgent-background = ${colors.alert}
@@ -78,87 +83,33 @@ label-urgent-padding = 2
 
 [module/xbacklight]
 type = internal/xbacklight
-
-format = <label>
-label =  %percentage% 
+label =  %percentage%%
 format-underline = ${colors.rainbow_7}
 
 
 [module/alsa]
 type = internal/alsa
-
-format-volume = <label-volume> <bar-volume>
-label-volume = 
+label-volume =  %percentage%%
 format-volume-underline = ${colors.rainbow_8}
-
-label-muted =  muted
+label-muted =  mute
 format-muted-underline = ${colors.rainbow_8}
-
-bar-volume-width = 8
-bar-volume-foreground-0 = ${colors.foreground}
-bar-volume-foreground-1 = ${colors.foreground}
-bar-volume-foreground-2 = ${colors.foreground}
-bar-volume-foreground-3 = ${colors.foreground}
-bar-volume-foreground-4 = ${colors.foreground}
-bar-volume-foreground-5 = ${colors.foreground}
-bar-volume-foreground-6 = ${colors.foreground}
-bar-volume-gradient = false
-bar-volume-indicator = .
-bar-volume-indicator-font = 2
-bar-volume-fill = .
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-
-
-[module/eth]
-type = internal/network
-interface = enp3s0
-interval = 3.0
-
-label-connected = %{A1:nm-connection-editor:} %local_ip%%{A}
-format-connected =  <label-connected>
-format-connected-underline = ${colors.rainbow_9}
-
-label-disconnected = %{A1:nm-connection-editor:} null%{A}
-format-disconnected = <label-disconnected>
-format-disconnected-underline = ${colors.rainbow_9}
-
-
-[module/wlan]
-type = internal/network
-interface = wlp5s0
-interval = 3.0
-
-label-connected = %{A1:nm-connection-editor:} %essid%%{A}
-format-connected = <label-connected>
-format-connected-underline = ${colors.rainbow_10}
-
-label-disconnected = %{A1:nm-connection-editor:} null%{A}
-format-disconnected = <label-disconnected>
-format-disconnected-underline = ${colors.rainbow_10}
 
 
 [module/battery]
 type = internal/battery
 battery = BAT0
 adapter = ADP1
-
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = ${colors.rainbow_11}
-
+format-charging-underline = ${colors.rainbow_9}
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${colors.rainbow_11}
-
+format-discharging-underline = ${colors.rainbow_9}
 format-full-prefix = 
-format-full-underline = ${colors.rainbow_11}
-
+format-full-underline = ${colors.rainbow_9}
 ramp-capacity-4 = 
 ramp-capacity-3 = 
 ramp-capacity-2 = 
 ramp-capacity-1 = 
 ramp-capacity-0 = 
-
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
@@ -167,17 +118,35 @@ animation-charging-4 = 
 animation-charging-framerate = 750
 
 
+[module/eth]
+type = internal/network
+interface = enp3s0
+interval = 3.0
+label-connected =  %local_ip%
+format-connected-underline = ${colors.rainbow_10}
+label-disconnected =  null
+format-disconnected-underline = ${colors.rainbow_10}
+
+
+[module/wlan]
+type = internal/network
+interface = wlp5s0
+interval = 3.0
+label-connected =  %essid%
+format-connected-underline = ${colors.rainbow_11}
+label-disconnected =  null
+format-disconnected-underline = ${colors.rainbow_11}
+
+
 [module/date]
 type = internal/date
 interval = 5
 date =
-date-alt = " %Y-%m-%d"
-
+date-alt = " %d.%m.%Y"
 time = %H:%M
 time-alt = %H:%M:%S
 format-prefix = 
 format-underline = ${colors.rainbow_12}
-
 label = %date% %time%
 
 
@@ -185,13 +154,11 @@ label = %date% %time%
 type = custom/menu
 expand-right = false
 format-spacing = 0
-
 label-open = 
 label-open-foreground = ${colors.rainbow_13}
 label-close = 
 label-close-foreground = ${colors.rainbow_13}
 label-separator = " | "
-
 menu-0-0 = reboot
 menu-0-0-exec = reboot
 menu-0-1 = power off
