@@ -1,0 +1,7 @@
+# Custom mappings for ̃̀Vimium browser extension
+
+map sf LinkHints.activateModeToOpenIncognito
+map <a-L> closeTabsOnLeft
+map <a-R> closeTabsOnRight
+map <a-O> closeOtherTabs
+map R reload hard
