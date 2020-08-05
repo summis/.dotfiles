@@ -6,6 +6,7 @@ alias cp='cp -i'
 alias df='df -h'
 alias free='free -m'
 alias more=less
+alias nmcli='nmcli -p'
 alias ls='ls --color=auto'
 alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'
@@ -18,6 +19,8 @@ alias sxiv='sxiv -at'
 alias ehco=echo
 alias sl=ls
 alias s=ls
+alias ncmli=nmcli
+alias nclim=nmcli
 alias cim=vim
 alias im=vim
 alias bim=vim
