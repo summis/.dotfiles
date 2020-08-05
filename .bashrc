@@ -1,29 +1,31 @@
 # ~/.bashrc
 
-# if not running interactively, stop
-[[ $- != *i* ]] && return
-
 # bash-completion: https://github.com/scop/bash-completion
-[ -f /usr/share/bash-completion/bash_completion ] && \
+[ -r /usr/share/bash-completion/bash_completion ] && \
     source /usr/share/bash-completion/bash_completion
 
 # tab completion for aliases: https://github.com/cykerway/complete-alias
-[ -f ~/.local/bin/complete_alias ] && source ~/.local/bin/complete_alias
+[ -r ~/.local/bin/complete_alias ] && source ~/.local/bin/complete_alias
 
 # aliases, functions and completions
-[ -f ~/.bash_aliases ] && source ~/.bash_aliases
-[ -f ~/.bash_functions ] && source ~/.bash_functions
-[ -f ~/.bash_completions ] && source ~/.bash_completions
+[ -r ~/.bash_aliases ] && source ~/.bash_aliases
+[ -r ~/.bash_functions ] && source ~/.bash_functions
+[ -r ~/.bash_completions ] && source ~/.bash_completions
 
 # git-prompt: https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
-[ -f /usr/share/git/git-prompt.sh ] && source /usr/share/git/git-prompt.sh
+[ -r /usr/share/git/git-prompt.sh ] && source /usr/share/git/git-prompt.sh
 
 # z: https://github.com/rupa/z/
 [ -r /usr/share/z/z.sh ] && source /usr/share/z/z.sh
 
 # additional completions that are used if program exist
 hash kitty >/dev/null 2>&1 && source <(kitty + complete setup bash)
-hash kubectl >/dev/null 2>&1 && source <(kubectl completion bash)
+
+# commented command made my prompt a bit slow. Piping output to file
+# kubectl completion bash > ~/.kubectl_completions.sh
+# and sourcing it made it faster
+#hash kubectl >/dev/null 2>&1 && source <(kubectl completion bash)
+[ -r ~/.kubectl_completions.sh ] && source ~/.kubectl_completions.sh
 
 # prompt
 GIT_PS1_SHOWDIRTYSTATE=1
@@ -45,13 +47,3 @@ shopt -s autocd
 shopt -s cdspell
 shopt -s histappend
 shopt -s no_empty_cmd_completion
-
-# history
-export HISTSIZE=10000000
-export HISTTIMEFORMAT="%d/%m/%y %T "
-export HISTCONTROL=erasedups
-
-# variable definitions
-export VISUAL=vim
-export EDITOR=vim
-export BROWSER=chromium

@@ -1,4 +1,6 @@
 # ~/.bash_profile
 
-# nothing interesting here
-[ -f ~/.bashrc ] && . ~/.bashrc
+[ -r ~/.profile ] && source ~/.profile
+
+# if running interactively include .bashrc
+case "$-" in *i*) [ -r ~/.bashrc ] && source ~/.bashrc; esac

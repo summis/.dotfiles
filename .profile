@@ -1,0 +1,10 @@
+export QT_QPA_PLATFORMTHEME="qt5ct"
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+export HISTSIZE=10000000
+export HISTFILESIZE=10000000
+export HISTTIMEFORMAT="%d/%m/%y %T "
+export HISTCONTROL=erasedups
+export VISUAL=vim
+export EDITOR=vim
+export BROWSER=chromium
+PATH=$PATH:$HOME/.scripts:$HOME/.scripts/layouts
