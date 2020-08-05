@@ -1,5 +1,5 @@
 #!/bin/bash
-# Google search from rofi
+# Google search from rofi.
 
 url="https://www.google.com/search?q="
 query=$( (echo ) | rofi  -dmenu -matching fuzzy -location 0 -p "Google search" )

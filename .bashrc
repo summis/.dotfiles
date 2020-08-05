@@ -25,7 +25,7 @@ hash kitty >/dev/null 2>&1 && source <(kitty + complete setup bash)
 # kubectl completion bash > ~/.kubectl_completions.sh
 # and sourcing it made it faster
 #hash kubectl >/dev/null 2>&1 && source <(kubectl completion bash)
-[ -r ~/.kubectl_completions.sh ] && source ~/.kubectl_completions.sh
+[ -r ~/.scripts/kubectl_completions.sh ] && source ~/.scripts/kubectl_completions.sh
 
 # prompt
 GIT_PS1_SHOWDIRTYSTATE=1
