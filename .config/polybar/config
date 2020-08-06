@@ -34,7 +34,7 @@ font-0 = Source Sans Pro:size=16
 font-1 = Font Awesome 5 Free Solid
 font-2 = Font Awesome 5 Brands Regular
 modules-left = i3
-modules-right = xbacklight alsa battery eth wlan date powermenu
+modules-right = xbacklight alsa battery eth wlan date
 
 
 [bar/eDP1]
@@ -45,7 +45,7 @@ monitor = eDP1
 [bar/HDMI1]
 inherit = bar/master
 monitor = HDMI1
-modules-right = alsa battery eth wlan date powermenu
+modules-right = alsa battery eth wlan date
 
 
 [module/i3]
@@ -142,27 +142,10 @@ format-disconnected-underline = ${colors.rainbow_11}
 type = internal/date
 interval = 5
 date =
-date-alt = " %d.%m.%Y"
 time = %H:%M
-time-alt = %H:%M:%S
 format-prefix = 
 format-underline = ${colors.rainbow_12}
 label = %date% %time%
-
-
-[module/powermenu]
-type = custom/menu
-expand-right = false
-format-spacing = 0
-label-open = 
-label-open-foreground = ${colors.rainbow_13}
-label-close = 
-label-close-foreground = ${colors.rainbow_13}
-label-separator = " | "
-menu-0-0 = reboot
-menu-0-0-exec = reboot
-menu-0-1 = power off
-menu-0-1-exec = poweroff
 
 
 [settings]
