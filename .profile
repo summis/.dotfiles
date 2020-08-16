@@ -7,4 +7,5 @@ export HISTCONTROL=erasedups
 export VISUAL=vim
 export EDITOR=vim
 export BROWSER=chromium
+export GOPATH="$HOME/.go"
 PATH=$PATH:$HOME/.scripts:$HOME/.scripts/layouts
