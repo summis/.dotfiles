@@ -94,18 +94,3 @@ cl() {
 		echo "bash: cl: $dir: Directory not found"
 	fi
 }
-
-# Easily copy file path if form that can be opened in browser.
-yy() {
-  local file_path=$(realpath -e $1)
-  echo "file://$file_path" | xclip
-}
-
-yyp() {
-  local file_path=$(realpath $1)
-  if [ -e "$file_path" ]; then
-    chromium "file://$file_path"
-  else
-    echo "File or directory not found"
-  fi
-}
