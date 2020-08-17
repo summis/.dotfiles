@@ -13,7 +13,7 @@ Xft.lcdfilter: lcddefault
 *foreground:                      #f26d01
 *background:                      #ffffff
 *fading:                          20
-*fadeColor:                       black
+*fadeColor:                       white
 *cursorColor:                     #ff00ff
 
 ! My rainbow accent colors, used with i3 and polybar
