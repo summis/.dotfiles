@@ -12,6 +12,6 @@ configuration {
 	hide-scrollbar: true;
 	parse-hosts: false;
 	parse-known-hosts: false;
-        terminal: "kitty";
-        ssh-command: "{terminal} {ssh-client} {host}";
+        terminal: "urxvt";
+        ssh-command: "{terminal} -e {ssh-client} {host}";
 }
