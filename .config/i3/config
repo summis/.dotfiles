@@ -226,14 +226,11 @@ mode "$monitors" {
     bindsym Escape mode "default"
 }
 
-
-# Lock screedf
-bindsym $mod+9 exec --no-startup-id blurlock
+# Lock screen
+bindsym $mod+9 exec --no-startup-id lock.sh
 
 # Autostart applications
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id picom -f
-#exec --no-startup-id xfce4-power-manager
 exec --no-startup-id $term --name ranger-term ranger
 exec --no-startup-id monitors.sh --initialize
 exec_always --no-startup-id fix_xcursor
