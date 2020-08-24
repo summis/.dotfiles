@@ -18,6 +18,10 @@
 # z: https://github.com/rupa/z/
 [ -r /usr/share/z/z.sh ] && source /usr/share/z/z.sh
 
+# hook to search commands that are not recognized from arch repos
+[ -r /usr/share/doc/pkgfile/command-not-found.bash ] && \
+    source /usr/share/doc/pkgfile/command-not-found.bash
+
 # additional completions that are used if program exist
 hash kitty >/dev/null 2>&1 && source <(kitty + complete setup bash)
 
@@ -47,3 +51,7 @@ shopt -s autocd
 shopt -s cdspell
 shopt -s histappend
 shopt -s no_empty_cmd_completion
+
+# append sudo to line with alt+s
+bind '"\es": "\C-asudo \C-e"'
+bind '"\em": "\C-aman \C-e"'
