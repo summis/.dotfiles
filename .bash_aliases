@@ -5,7 +5,8 @@ alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias cp='cp -i'
 alias df='df -h'
 alias free='free -m'
-alias more=less
+alias less=/usr/share/vim/vim82/macros/less.sh
+alias more=/usr/share/vim/vim82/macros/less.sh
 alias nmcli='nmcli -p'
 alias ls='ls --color=auto'
 alias grep='grep --colour=auto'
