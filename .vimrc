@@ -5,17 +5,14 @@ call plug#begin('~/.vim/plugged')
 Plug 'kjssad/quantum.vim'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'junegunn/goyo.vim'
 call plug#end()
 
 filetype plugin indent on
 syntax on
-
 colo quantum
-set background=light
-set termguicolors
-hi Normal guibg=NONE
-set t_ut=
 
+set termguicolors
 set nocompatible
 set hidden
 set wildmenu
@@ -52,6 +49,7 @@ inoremap [<CR> [<CR>]<C-c>O
 
 command D smile     "Very important
 
+" remove whitespace from end when saving
 autocmd BufWritePre * %s/\s\+$//e
 
 " plugin settings
