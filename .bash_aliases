@@ -1,7 +1,9 @@
-# dotfile management
+# ~/.bash_aliases
+
+# Dotfile management.
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-# enhancements
+# Enhancements to default programs.
 alias cp='cp -i'
 alias df='df -h'
 alias free='free -m'
@@ -14,7 +16,7 @@ alias hgrep='history | grep'
 alias R='R --quiet'
 alias sxiv='sxiv -at'
 
-# common typos
+# Common typos.
 alias ehco=echo
 alias sl=ls
 alias s=ls
@@ -30,7 +32,7 @@ alias xlcip=xclip
 alias xlip=xclip
 alias Z=z
 
-# git aliases
+# Git aliases.
 alias gad='git add'
 alias gco='git commit'
 alias gst='git status'
@@ -38,5 +40,5 @@ alias glo='git log --oneline'
 alias gbr='git branch'
 alias gch='git checkout'
 
-# fun with docker
+# Use docker container for pdflatex.
 alias pdflatex='docker run -it --rm -v $(pwd):/project summila/alpine-texlive'

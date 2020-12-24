@@ -1,9 +1,12 @@
-export QT_QPA_PLATFORMTHEME="qt5ct"
-export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+# ~/.profile
+
+# Settings for bash history size and format.
 export HISTSIZE=10000000
 export HISTFILESIZE=10000000
 export HISTTIMEFORMAT="%d/%m/%y %T "
 export HISTCONTROL=erasedups
+
+# Default programs used by some software.
 export VISUAL=vim
 export EDITOR=vim
 export BROWSER=firefox
