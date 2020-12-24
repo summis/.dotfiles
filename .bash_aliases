@@ -22,6 +22,7 @@ alias sl=ls
 alias s=ls
 alias ncmli=nmcli
 alias nclim=nmcli
+alias mkdri=mkdir
 alias cim=vim
 alias im=vim
 alias bim=vim
