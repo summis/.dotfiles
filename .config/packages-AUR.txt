@@ -1,0 +1,6 @@
+i3lock-color
+polybar
+ttf-font-awesome
+urxvt-resize-font-git
+xcwd-git
+z
