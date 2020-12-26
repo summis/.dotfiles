@@ -9,9 +9,13 @@ if [[ $EUID -eq 0 ]]
   exit 1
 fi
 
+# Initialize bare git repo for config.
+GIT_REPO_URL="https://github.com/summis/.dotfiles.git"
+git clone --bare $GIT_REPO_URL $HOME/.dotfiles
+
 # Update system and install some nice software and fonts.
 sudo pacman -Syu --noconfirm
-sudo pacman -S --noconfirm - < packages.txt
+sudo pacman -S --noconfirm - < $HOME/.dotfiles/.config/packages.txt
 
 # Install AUR helper if not installed and some nice AUR packages.
 if ! command -v yay &> /dev/null
@@ -24,11 +28,8 @@ fi
 
 while read package; do
   yay -S $package
-done < packages-AUR.txt
+done < $HOME/.dotfiles/.config/packages-AUR.txt
 
-# Initialize bare git repo for config.
-GIT_REPO_URL="https://github.com/summis/.dotfiles.git"
-git clone --bare $GIT_REPO_URL $HOME/.dotfiles
 
 # Enable aliases in script and define alias for maintaing dotfile repo.
 shopt -s expand_aliases
@@ -48,7 +49,7 @@ config config --local status.showUntrackedFiles no
 # Install vim package manager and packages.
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim -es -c "PlugInstall" -c "qa"
+vim -es -u $HOME/.vimrc -c "PlugInstall" -c "qa"
 
 # Create blanc default wallpaper.
 mkdir $HOME/.wallpapers
