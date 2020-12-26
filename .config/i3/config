@@ -1,58 +1,59 @@
 # ~/.config/i3/config
 
-# Set mod key (Mod1=<Alt>, Mod4=<Super>)
+# Set mod key and terminal (Mod1=<Alt>, Mod4=<Super>).
 set $mod Mod4
-set $term kitty
+set $term urxvt
 
-# configure border style <normal|1pixel|pixel xx|none|pixel>
+# Configure border style <normal|1pixel|pixel xx|none|pixel>.
 new_window pixel 2
 new_float normal
 
-# Font in window titles
-font pango:Source Sans Pro 13
+# Font in window titles.
+font pango:FreeSans 13
 
-# Hide borders
+# Hide borders.
 hide_edge_borders none
 
-# Easier window resizing: form Luke Smith
+# Easier window resizing: from Luke Smith.
 bindsym $mod+Shift+y exec --no-startup-id i3resize.sh left
 bindsym $mod+Shift+u exec --no-startup-id i3resize.sh down
 bindsym $mod+Shift+i exec --no-startup-id i3resize.sh up
 bindsym $mod+Shift+o exec --no-startup-id i3resize.sh right
 
-# Use Mouse+$mod to drag floating windows
+# Use Mouse+$mod to drag floating windows.
 floating_modifier $mod
 
-# Start a terminal: press Shift to open in current working directory
+# Start a terminal: press Shift to open in current working directory.
 bindsym $mod+Return exec $term
-bindsym $mod+Shift+Return exec $term -d "`/usr/bin/xcwd/xcwd`"
+bindsym $mod+Shift+Return exec $term -cd "`xcwd`"
 
-# Kill focused window
+# Kill focused window.
 bindsym $mod+Shift+q kill
 
-# Start program launcher
+# Start program launcher.
 bindsym $mod+d exec --no-startup-id rofi -show
 
-# Sound & brighness settings
-# Arch wiki, man's best friend
-# https://wiki.archlinux.org/index.php/PulseAudio/Troubleshooting#Output_stuck_muted_while_Master_is_toggled
-bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -q sset Master,0 3+ unmute"
-bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -q sset Master,0 3- unmute"
-bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse sset Master toggle"
-bindcode $mod+60 exec --no-startup-id "amixer -q sset Master,0 3+ unmute"
-bindcode $mod+59 exec --no-startup-id "amixer -q sset Master,0 3- unmute"
-bindsym $mod+m  exec --no-startup-id "amixer -D pulse sset Master toggle"
-
+# Sound & brighness settings.
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl -- set-sink-volume 0 +10%"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl -- set-sink-volume 0 -10%"
+# If needeed consider also case with external earphones etc
+# https://askubuntu.com/questions/26068/how-do-you-mute-from-the-command-line
+bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute 0 toggle"
 bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 5"
 bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 5"
+
+# If external keyboard is used.
+bindcode $mod+60 exec --no-startup-id "pactl -- set-sink-volume 0 +10%"
+bindcode $mod+59 exec --no-startup-id "pactl -- set-sink-volume 0 -10%"
+bindsym $mod+m  exec --no-startup-id "pactl set-sink-mute 0 toggle"
 bindcode $mod+Shift+60 exec --no-startup-id "xbacklight -inc 5"
 bindcode $mod+Shift+59 exec --no-startup-id "xbacklight -dec 5"
 
-# Change keyboard layot on the fly. Consider making mode of this
+# Change keyboard layot on the fly. Consider making mode of this.
 bindsym $mod+Ctrl+space exec --no-startup-id "setxkbmap -layout fi -variant nodeadkeys"
 bindsym $mod+Shift+Ctrl+space exec --no-startup-id "setxkbmap -layout us -variant intl"
 
-# Start Applications
+# Start applications.
 bindsym $mod+Print --release exec --no-startup-id flameshot gui
 bindsym $mod+p --release exec --no-startup-id flameshot gui
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
@@ -64,56 +65,50 @@ bindsym $mod+r exec --no-startup-id random_wallpaper.sh
 
 focus_follows_mouse no
 
-# change focus
+# Change focus.
 bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
+bindsym $mod+j focus down
 bindsym $mod+Down focus down
+bindsym $mod+k focus up
 bindsym $mod+Up focus up
+bindsym $mod+l focus right
 bindsym $mod+Right focus right
 
-# move focused window
+# Move focused window.
 bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+j move down
 bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+k move up
 bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+l move right
 bindsym $mod+Shift+Right move right
 
-# prev and next workspace
+# Previous and next workspace.
 bindsym $mod+n workspace next
 bindsym $mod+b workspace prev
-
-# split orientation
-bindsym $mod+v split v
-bindsym $mod+Shift+v split h
-
-# toggle fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# scratchpad
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
-
-#navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
-# Workspace names, see also polybar conf
+# Change orientation.
+bindsym $mod+v split v
+bindsym $mod+Shift+v split h
+
+# Toggle fullscreen mode for the focused container.
+bindsym $mod+f fullscreen toggle
+
+# Toggle tiling/floating.
+bindsym $mod+Shift+space floating toggle
+
+# Change focus between tiling/floating windows.
+bindsym $mod+space focus mode_toggle
+
+# Scratchpad.
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+# Workspace names, see also polybar conf.
 set $ws1 1
 set $ws2 2
 set $ws3 3
@@ -123,7 +118,7 @@ set $ws6 6
 set $ws7 7
 set $ws8 8
 
-# Switch to workspace
+# Switch to workspace.
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -133,7 +128,7 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 
-# Move focused container to workspace
+# Move focused container to workspace.
 bindsym $mod+Ctrl+1 move container to workspace $ws1
 bindsym $mod+Ctrl+2 move container to workspace $ws2
 bindsym $mod+Ctrl+3 move container to workspace $ws3
@@ -143,7 +138,7 @@ bindsym $mod+Ctrl+6 move container to workspace $ws6
 bindsym $mod+Ctrl+7 move container to workspace $ws7
 bindsym $mod+Ctrl+8 move container to workspace $ws8
 
-# Move to workspace with focused container
+# Move to workspace with focused container.
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
@@ -153,60 +148,31 @@ bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
-# Open applications on specific workspaces
+# Open applications on specific workspaces.
 assign [class="TelegramDesktop"] $ws8
 
-# Open specific applications in floating mode
-for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="calamares"] floating enable border normal
-for_window [class="Clipgrab"] floating enable
-for_window [title="File Transfer*"] floating enable
-for_window [class="Galculator"] floating enable border pixel 1
-for_window [class="GParted"] floating enable border normal
-for_window [title="i3_help"] floating enable sticky enable border normal
-for_window [class="Lightdm-settings"] floating enable
-for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [class="Manjaro-hello"] floating enable
-for_window [class="Manjaro Settings Manager"] floating enable border normal
-for_window [title="MuseScore: Play Panel"] floating enable
-for_window [class="Nitrogen"] floating enable sticky enable border normal
-for_window [class="Oblogout"] fullscreen enable
-for_window [class="octopi"] floating enable
-for_window [title="About Pale Moon"] floating enable
-for_window [class="Pamac-manager"] floating enable
-for_window [class="Pavucontrol"] floating enable
-for_window [class="qt5ct"] floating enable sticky enable border normal
-for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
-for_window [class="Simple-scan"] floating enable border normal
-for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="Skype"] floating enable border normal
-for_window [class="Timeset-gui"] floating enable border normal
-for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="Xfburn"] floating enable
-for_window [class="TelegramDesktop"] floating enable
-
-# switch to workspace with urgent window automatically
+# Switch to workspace with urgent window automatically.
 for_window [urgent=latest] focus
 
-# reload the configuration file
+# Reload the configuration file.
 bindsym $mod+Shift+c reload
 
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3).
 bindsym $mod+Shift+r restart
 
-# exit i3 (logs you out of your X session)
+# Exit i3 (logs you out of your X session).
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# Set shut down, restart and locking features
+# Set shut down, restart and locking features.
 bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+    bindsym l exec --no-startup-id i3exit.sh lock, mode "default"
+    bindsym s exec --no-startup-id i3exit.sh suspend, mode "default"
+    bindsym e exec --no-startup-id i3exit.sh logout, mode "default"
+    bindsym h exec --no-startup-id i3exit.sh hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit.sh reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit.sh shutdown, mode "default"
 
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
@@ -231,13 +197,9 @@ bindsym $mod+9 exec --no-startup-id lock.sh
 
 # Autostart applications
 exec --no-startup-id picom -f
-exec --no-startup-id $term --name ranger-term ranger
-exec --no-startup-id monitors.sh --initialize
-exec_always --no-startup-id fix_xcursor
-
-# Move ranger to scratchpad on startup
-for_window [instance="ranger-term"] move scratchpad
-for_window [instance="ranger-term"] sticky enable
+exec --no-startup-id polybar -r old
+exec --no-startup-id random_wallpaper.sh
+exec --no-startup-id conky
 
 # Theme colors
 set_from_resource   $rb1    rainbow_1
