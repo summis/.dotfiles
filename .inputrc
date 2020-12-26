@@ -1,8 +1,13 @@
-# make tab cycle through commands after listing
+# Make tab cycle through commands after listing.
 "\t":menu-complete
 "\e[Z": menu-complete-backward
+
+# Enhancements to tab completion.
 set show-all-if-ambiguous on
 set completion-ignore-case on
 set menu-complete-display-prefix on
 set page-completions off
 set colored-stats on
+
+# Disable bell sound.
+set bell-style none
