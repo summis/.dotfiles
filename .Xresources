@@ -1,5 +1,5 @@
 ! ~/.Xresources
-#include "/home/summis/.config/urxvt"
+#include ".config/urxvt"
 
 Xft.dpi:       96
 Xft.antialias: true
