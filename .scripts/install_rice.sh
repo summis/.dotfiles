@@ -10,8 +10,8 @@ if [[ $EUID -eq 0 ]]
 fi
 
 # Update system and install some nice software and fonts.
-sudo pacman -Syu
-sudo pacman -S - < packages.txt
+sudo pacman -Syu --noconfirm
+sudo pacman -S --noconfirm - < packages.txt
 
 # Install AUR helper if not installed and some nice AUR packages.
 if ! command -v yay &> /dev/null
@@ -48,7 +48,7 @@ config config --local status.showUntrackedFiles no
 # Install vim package manager and packages.
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim -es -u vimrc -i NONE -c "PlugInstall" -c "qa"
+vim -es -c "PlugInstall" -c "qa"
 
 # Create blanc default wallpaper.
 mkdir $HOME/.wallpapers
