@@ -1,7 +1,7 @@
 [global]
     frame_width = 2
     frame_color = "#f21605"
-    font = Source Sans Pro, 13
+    font = FreeSans, 13
     markup = yes
     format = "%s %p\n%b"
     sort = yes
