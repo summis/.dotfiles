@@ -1,7 +1,7 @@
 ; ~/.config/polybar/config
 
 [colors]
-background = transparent
+background = #ffffff
 foreground = #6c6c6c
 rainbow_1 = ${xrdb:rainbow_1}
 rainbow_2 = ${xrdb:rainbow_2}
@@ -67,7 +67,7 @@ index-sort=true
 enable-scroll=false
 
 label-mode-padding = 2
-ws-icon-0 = 1; I
+ws-icon-0 = 1;I
 ws-icon-1 = 2; II
 ws-icon-2 = 3; III
 ws-icon-3 = 4; IV
@@ -88,6 +88,13 @@ label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
 
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+label =  %percentage%%
+format-underline = ${colors.rainbow_7}
+
+
 [module/xbacklight]
 type = internal/xbacklight
 label =  %percentage%%
@@ -95,6 +102,7 @@ format-underline = ${colors.rainbow_7}
 
 
 [module/alsa]
+master-soundcard=hw:1
 type = internal/alsa
 label-volume =  %percentage%%
 format-volume-underline = ${colors.rainbow_8}
@@ -137,7 +145,7 @@ format-disconnected-underline = ${colors.rainbow_10}
 
 [module/wlan]
 type = internal/network
-interface = wlp5s0
+interface = wlo1
 interval = 3.0
 label-connected =  %essid%
 format-connected-underline = ${colors.rainbow_11}
